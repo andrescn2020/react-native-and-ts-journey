@@ -13,35 +13,35 @@ export const TareaScreen = () => {
 
 // TAREA 1 
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        width: 100,
-        backgroundColor: "#28425B",
-        flexDirection: "column",
-        // justifyContent: "flex-start",
-        // alignItems: "flex-start"
-    },
-    cajaMorada: {
-        flex: 1,
-        borderWidth: 10,
-        borderColor: "white",
-        backgroundColor: "#5856D6"
-    },
-    cajaNaranja: {
-        flex: 8,
-        borderWidth: 10,
-        borderColor: "white",
-        backgroundColor: "#F0A23B"
-    },
-    cajaAzul: {
-        flex: 1,
-        borderWidth: 10,
-        borderColor: "white",
-        backgroundColor: "#28C4D9",
-        borderBottomWidth: 10
-    }
-});
+// const styles = StyleSheet.create({
+//     container: {
+//         flex: 1,
+//         width: 100,
+//         backgroundColor: "#28425B",
+//         flexDirection: "column",
+//         // justifyContent: "flex-start",
+//         // alignItems: "flex-start"
+//     },
+//     cajaMorada: {
+//         flex: 1,
+//         borderWidth: 10,
+//         borderColor: "white",
+//         backgroundColor: "#5856D6"
+//     },
+//     cajaNaranja: {
+//         flex: 8,
+//         borderWidth: 10,
+//         borderColor: "white",
+//         backgroundColor: "#F0A23B"
+//     },
+//     cajaAzul: {
+//         flex: 1,
+//         borderWidth: 10,
+//         borderColor: "white",
+//         backgroundColor: "#28C4D9",
+//         borderBottomWidth: 10
+//     }
+// });
 
 // TAREA 2
 
@@ -111,38 +111,37 @@ const styles = StyleSheet.create({
 
 // TAREA 4
 
-// const styles = StyleSheet.create({
-//     container: {
-//         flex: 1,
-//         backgroundColor: "#28425B",
-//         justifyContent: "space-between",
-//         flexDirection: "row",
-//     },
-//     cajaMorada: {
-//         height: 100,
-//         width: 100,
-//         alignSelf: "flex-end",
-//         borderWidth: 10,
-//         borderColor: "white",
-//         backgroundColor: "#5856D6"
-//     },
-//     cajaNaranja: {
-//         width: 100,
-//         height: 100,
-//         alignSelf: "center",
-//         borderWidth: 10,
-//         borderColor: "white",
-//         backgroundColor: "#F0A23B"
-//     },
-//     cajaAzul: {
-//         height: 100,
-//         width: 100,
-//         alignSelf: "flex-start",
-//         borderWidth: 10,
-//         borderColor: "white",
-//         backgroundColor: "#28C4D9",
-//     }
-// });
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: "#28425B",
+        justifyContent: "space-between",
+    },
+    cajaMorada: {
+        height: 100,
+        width: 100,
+        alignSelf: "flex-end",
+        borderWidth: 10,
+        borderColor: "white",
+        backgroundColor: "#5856D6"
+    },
+    cajaNaranja: {
+        width: 100,
+        height: 100,
+        alignSelf: "center",
+        borderWidth: 10,
+        borderColor: "white",
+        backgroundColor: "#F0A23B"
+    },
+    cajaAzul: {
+        height: 100,
+        width: 100,
+        alignSelf: "flex-start",
+        borderWidth: 10,
+        borderColor: "white",
+        backgroundColor: "#28C4D9",
+    }
+});
 
 // TAREA 5
 
