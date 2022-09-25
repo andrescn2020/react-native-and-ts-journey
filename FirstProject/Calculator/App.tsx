@@ -1,20 +1,11 @@
-import { Text, View } from "react-native";
 import React from "react";
+import { Counter } from "./src/screens/Counter";
+// import { HolaMundoScreen } from "./src/screens/HolaMundoScreen";
 
-const App = () => {
+export const App = () => {
   return (
-    <View style={{
-      flex: 1,
-      backgroundColor: "red",
-      justifyContent: "center",
-      alignItems: "center"
-    }}>
-      <Text style={{
-        fontSize: 50,
-        textAlign: "center"
-      }}>Hola Mundo</Text>
-    </View>
+    // <HolaMundoScreen />
+    <Counter/>
   )
 }
 
-export default App;
