@@ -1,11 +1,20 @@
 import React from "react";
-import { Counter } from "./src/screens/Counter";
+import { SafeAreaView } from "react-native";
+import { PositionScreen } from "./src/screens/PositionScreen";
+//import { DimensionesScreen } from "./src/screens/DimensionesScreen";
+//import { BoxObjectModelScreen } from "./src/screens/BoxObjectModelScreen";
+// import { CounterScreen } from "./src/screens/CounterScreen";
 // import { HolaMundoScreen } from "./src/screens/HolaMundoScreen";
 
 export const App = () => {
   return (
-    // <HolaMundoScreen />
-    <Counter/>
+    <SafeAreaView style={{flex: 1}}>
+       {/* <HolaMundoScreen />
+       <CounterScreen/> */}
+      {/* <BoxObjectModelScreen /> */}
+      {/* <DimensionesScreen /> */}
+      <PositionScreen />
+    </SafeAreaView>
   )
 }
 

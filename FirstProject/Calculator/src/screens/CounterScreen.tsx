@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import { Fab } from '../components/fab';
 
-export const Counter = () => {
+export const CounterScreen = () => {
     const [contador, setContador] = useState(10);
     return (
         <View style={styles.container}>
