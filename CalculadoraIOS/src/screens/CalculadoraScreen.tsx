@@ -40,6 +40,17 @@ const CalculadoraScreen = () => {
         }
     }
 
+    const del = () => {
+        if(numero.length === 1) {
+            setNumero("0")
+        } else if(numero.length === 2 && numero.includes("-")) {
+            setNumero("0")
+        } else {
+            let nuevoNumero = numero.substring(0, numero.length - 1)
+            setNumero(nuevoNumero)
+        }
+    }
+
     return (
         <View style={styles.calculadoraContainer}>
             <Text style={styles.resultadoPequenio}>{numeroAnterior}</Text>
@@ -48,7 +59,7 @@ const CalculadoraScreen = () => {
             <View style={styles.fila}>
                 <BotonCalc texto="C" color="#9B9B9B" accion={limpiar} />
                 <BotonCalc texto="+/-" color="#9B9B9B" accion={positivoNegativo}/>
-                <BotonCalc texto="del" color="#9B9B9B" accion={limpiar}/>
+                <BotonCalc texto="del" color="#9B9B9B" accion={del}/>
                 <BotonCalc texto="/" color="#FF9427" accion={limpiar}/>
             </View>
             {/* Fila de botones */}
