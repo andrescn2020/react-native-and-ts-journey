@@ -5,12 +5,13 @@ import { styles } from '../theme/AppTheme';
 interface Props {
     texto: string,
     color?: string,
-    ancho?: boolean
+    ancho?: boolean,
+    accion: (numeroTexto:string) => void
 }
 
-const BotonCalc = ({ texto, color = "#2D2D2D", ancho = false }: Props) => {
+const BotonCalc = ({ texto, color = "#2D2D2D", ancho = false, accion }: Props) => {
     return (
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => accion(texto)}>
             <View style={{
                 ...styles.boton,
                 backgroundColor: color,
