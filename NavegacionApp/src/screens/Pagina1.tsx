@@ -1,4 +1,5 @@
 import React from 'react'
+import Icon from 'react-native-vector-icons/Ionicons';
 import { View, Text, Button, TouchableOpacity } from 'react-native';
 import { StackScreenProps } from "@react-navigation/stack";
 import { styles } from '../theme/appTheme';
@@ -19,12 +20,14 @@ const Pagina1 = ( { navigation } : Props) => {
           nombre: "Andrés"
         })}>
           <Text style={styles.botonGrandeTexto}>Andrés</Text>
+          <Icon name="man-outline" size={50} color="white" />
         </TouchableOpacity>
         <TouchableOpacity style={{...styles.botonGrande, backgroundColor: "#FF9427"}} onPress={() => navigation.navigate('PersonaScreen', {
           id: 2,
           nombre: "Maria"
         })}>
           <Text style={styles.botonGrandeTexto}>Maria</Text>
+          <Icon name="woman-outline" size={50} color="white" />
         </TouchableOpacity>
         {/* <Button title='Ir persona' onPress={() => navigation.navigate('PersonaScreen')}/> */}
         </View>

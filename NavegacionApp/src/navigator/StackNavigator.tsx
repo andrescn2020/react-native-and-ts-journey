@@ -1,5 +1,4 @@
 import React from "react";
-
 import { createStackNavigator } from '@react-navigation/stack';
 import Pagina1 from '../screens/Pagina1';
 import Pagina2 from '../screens/Pagina2';

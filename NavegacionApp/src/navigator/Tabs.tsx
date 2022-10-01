@@ -1,4 +1,5 @@
 import React from 'react';
+import Icon from 'react-native-vector-icons/Ionicons';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Tab1Screen from '../screens/Tab1Screen';
@@ -34,21 +35,14 @@ const TabsAndroid = () => {
           fontSize: 15
         },
         tabBarIcon: ({color}) => {
-          let iconName: string = '';
           switch (route.name) {
             case 'Tab1Screen':
-              iconName = 'T1'
-              break;
-
+              return <Text style={{ color }}><Icon name="arrow-back-outline" size={20} color="#900" /></Text>
             case 'TopTabNavigator':
-              iconName = 'TN'
-              break;
-
+              return <Text style={{ color }}><Icon name="arrow-up-outline" size={20} color="#900" /></Text>
             case 'StackNavigator':
-              iconName = 'ST'
-              break;
+              return <Text style={{ color }}><Icon name="arrow-forward-outline" size={20} color="#900" /></Text>
           }
-          return <Text style={{ color }}>{iconName}</Text>
         }
       })}
     >

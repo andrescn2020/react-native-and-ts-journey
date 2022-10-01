@@ -1,8 +1,8 @@
 import React from "react";
 
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer';
-
-import { StackNavigator } from './StackNavigator';
+import Icon from 'react-native-vector-icons/Ionicons';
+//import { StackNavigator } from './StackNavigator';
 import SettingsScreens from '../screens/SettingsScreens';
 import { Image, Linking, View } from 'react-native';
 import { styles } from '../theme/appTheme';
@@ -13,8 +13,26 @@ const Drawer = createDrawerNavigator();
 export const MenuLateral = () => {
   return (
     <Drawer.Navigator drawerContent={(props) => <MenuInterno {...props}/>}>
-      <Drawer.Screen name="Tabs" component={Tabs} />
-      <Drawer.Screen name="SettingsScreen" component={SettingsScreens} />
+      <Drawer.Screen options={{
+           title: 'Home',
+           drawerIcon: ({focused, size}) => (
+              <Icon
+                 name="apps-outline"
+                 size={30}
+                 color="red"
+              />
+           ),
+        }} name="Tabs" component={Tabs} />
+      <Drawer.Screen options={{
+           title: 'SettingsScreen',
+           drawerIcon: ({focused, size}) => (
+              <Icon
+                 name="albums-outline"
+                 size={30}
+                 color="red"
+              />
+           ),
+        }} name="SettingsScreen" component={SettingsScreens} />
     </Drawer.Navigator>
   );
 }
@@ -28,11 +46,6 @@ const MenuInterno = (props:any) => {
         }} style={styles.avatar}/>
       </View>
       <DrawerItemList {...props} />
-      <DrawerItem
-        label="Help"
-        onPress={() => Linking.openURL('https://google.com')}
-        style={{backgroundColor: "orange"}}
-      />
     </DrawerContentScrollView>
   );
 }
