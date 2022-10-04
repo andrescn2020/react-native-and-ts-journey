@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, ActivityIndicator, Dimensions, FlatList } from 'react-native';
+import { View, ActivityIndicator, Dimensions } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
@@ -13,7 +13,7 @@ const { width: windowWidth } = Dimensions.get('window');
 
 const HomeScreen = () => {
 
-    const { peliculasEnCine, isLoading } = useMovies();
+    const { nowPlaying, popular, topRated, upcoming, isLoading } = useMovies();
     const { top } = useSafeAreaInsets();
 
     if (isLoading) {
@@ -29,16 +29,16 @@ const HomeScreen = () => {
             <View style={{ marginTop: top + 20 }}>
                 <View style={{ height: 440 }}>
                     <Carousel
-                        data={peliculasEnCine}
+                        data={nowPlaying}
                         renderItem={({ item }: any) => <MoviePoster movie={item} />}
                         sliderWidth={windowWidth}
                         itemWidth={300}
                         inactiveSlideOpacity={0.9}
                     />
                 </View>
-                <FlatListPersonal title='En cine' movies={peliculasEnCine}/>
-                <FlatListPersonal title='En cine' movies={peliculasEnCine}/>
-                <FlatListPersonal title='En cine' movies={peliculasEnCine}/>
+                <FlatListPersonal title='Popular' movies={popular}/>
+                <FlatListPersonal title='Top Rated' movies={topRated}/>
+                <FlatListPersonal title='Upcoming' movies={upcoming}/>
             </View>
         </ScrollView>
     )
