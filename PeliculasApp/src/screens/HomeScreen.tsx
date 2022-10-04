@@ -4,8 +4,8 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import Carousel from 'react-native-snap-carousel';
-import FlatListPersonal from '../components/FlatListPersonal';
 
+import FlatListPersonal from '../components/FlatListPersonal';
 import MoviePoster from '../components/MoviePoster';
 import { useMovies } from '../hooks/useMovies';
 
@@ -33,9 +33,12 @@ const HomeScreen = () => {
                         renderItem={({ item }: any) => <MoviePoster movie={item} />}
                         sliderWidth={windowWidth}
                         itemWidth={300}
+                        inactiveSlideOpacity={0.9}
                     />
                 </View>
-                <FlatListPersonal title='En cine'/>
+                <FlatListPersonal title='En cine' movies={peliculasEnCine}/>
+                <FlatListPersonal title='En cine' movies={peliculasEnCine}/>
+                <FlatListPersonal title='En cine' movies={peliculasEnCine}/>
             </View>
         </ScrollView>
     )

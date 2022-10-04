@@ -2,18 +2,21 @@ import React from 'react'
 import { View, Text, FlatList } from 'react-native';
 import { useMovies } from '../hooks/useMovies';
 import MoviePoster from './MoviePoster';
+import { Movie } from '../interfaces/movieInterface';
 
 interface Props {
-    title: string;
+    title?: string;
+    movies: Movie[];
 }
 
-const FlatListPersonal = ({title}:Props) => {
-    const { peliculasEnCine } = useMovies();
+const FlatListPersonal = ({ title, movies }: Props) => {
     return (
-        <View style={{ height: 260, backgroundColor: 'orange' }}>
-            <Text style={{ fontSize: 30, fontWeight: "bold", color: "black" }}>{title}</Text>
+        <View style={{
+            height: (title) ? 260 : 220
+        }}>
+            {title && <Text style={{ fontSize: 30, fontWeight: "bold", color: "black", marginLeft: 10 }}>{title}</Text>}
             <FlatList
-                data={peliculasEnCine}
+                data={movies}
                 renderItem={({ item }: any) => (
                     <MoviePoster movie={item} width={140} height={200} />
                 )}
