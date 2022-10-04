@@ -1,10 +1,20 @@
 import React from 'react'
-import { View, Text, ActivityIndicator } from 'react-native';
+import { View, Text, ActivityIndicator, Dimensions, FlatList } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+
+import Carousel from 'react-native-snap-carousel';
+import FlatListPersonal from '../components/FlatListPersonal';
+
+import MoviePoster from '../components/MoviePoster';
 import { useMovies } from '../hooks/useMovies';
+
+const { width: windowWidth } = Dimensions.get('window');
 
 const HomeScreen = () => {
 
     const { peliculasEnCine, isLoading } = useMovies();
+    const { top } = useSafeAreaInsets();
 
     if (isLoading) {
         return (
@@ -15,9 +25,19 @@ const HomeScreen = () => {
     }
 
     return (
-        <View>
-            <Text>Home Screen</Text>
-        </View>
+        <ScrollView>
+            <View style={{ marginTop: top + 20 }}>
+                <View style={{ height: 440 }}>
+                    <Carousel
+                        data={peliculasEnCine}
+                        renderItem={({ item }: any) => <MoviePoster movie={item} />}
+                        sliderWidth={windowWidth}
+                        itemWidth={300}
+                    />
+                </View>
+                <FlatListPersonal title='En cine'/>
+            </View>
+        </ScrollView>
     )
 }
 
