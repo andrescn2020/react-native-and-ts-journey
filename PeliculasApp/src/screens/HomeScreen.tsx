@@ -9,6 +9,7 @@ import FlatListPersonal from '../components/FlatListPersonal';
 import MoviePoster from '../components/MoviePoster';
 import { useMovies } from '../hooks/useMovies';
 import GradientBackground from '../components/GradientBackground';
+import { getImageColors } from '../helpers/getImageColors';
 
 const { width: windowWidth } = Dimensions.get('window');
 
@@ -16,6 +17,14 @@ const HomeScreen = () => {
 
     const { nowPlaying, popular, topRated, upcoming, isLoading } = useMovies();
     const { top } = useSafeAreaInsets();
+
+    const getPosterColor = async (index: number) => {
+        const movie = nowPlaying[index];
+        const uri = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+        const [primary, secondary] = await getImageColors(uri);
+        console.log(primary, secondary);
+        
+    }
 
     if (isLoading) {
         return (
@@ -36,6 +45,7 @@ const HomeScreen = () => {
                             sliderWidth={windowWidth}
                             itemWidth={300}
                             inactiveSlideOpacity={0.9}
+                            onSnapToItem={index => getPosterColor(index)}
                         />
                     </View>
                     <FlatListPersonal title='Popular' movies={popular} />
