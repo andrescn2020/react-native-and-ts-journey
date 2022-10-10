@@ -20,25 +20,24 @@ const DetailScreen = ({ route, navigation }: Props) => {
   const { isLoading, cast, movieFull } = useMovieDetails(movie.id);
 
   return (
-    <ScrollView>
-      <View style={styles.imageContainer}>
-        <View style={styles.imageBorder}>
-          <Image source={{ uri }} style={styles.posterImage} />
+      <ScrollView>
+        <View style={styles.imageContainer}>
+          <View style={styles.imageBorder}>
+            <Image source={{ uri }} style={styles.posterImage} />
+          </View>
         </View>
-      </View>
-      <View style={styles.marginContainer}>
-        <Text style={styles.subTitle}>{movie.original_title}</Text>
-        <Text style={styles.title}>{movie.title}</Text>
-      </View>
+        <View style={styles.marginContainer}>
+          <Text style={styles.subTitle}>{movie.original_title}</Text>
+          <Text style={styles.title}>{movie.title}</Text>
+        </View>
 
-      {isLoading ? <ActivityIndicator size={35} color="grey" style={{ marginTop: 20 }} /> : <MovieDetails movieFull={movieFull!} cast={cast} />}
-      <View style={styles.backBotton}>
-        <TouchableOpacity onPress={() => navigation.pop()}>
-          <Icon color="white" name="arrow-back-outline" size={60} />
-        </TouchableOpacity>
-      </View>
-    </ScrollView>
-
+        {isLoading ? <ActivityIndicator size={35} color="grey" style={{ marginTop: 20 }} /> : <MovieDetails movieFull={movieFull!} cast={cast} />}
+        <View style={styles.backBotton}>
+          <TouchableOpacity onPress={() => navigation.pop()}>
+            <Icon color="white" name="arrow-back-outline" size={60} />
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
   )
 }
 
