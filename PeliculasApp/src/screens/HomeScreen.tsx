@@ -10,6 +10,8 @@ import MoviePoster from '../components/MoviePoster';
 import { useMovies } from '../hooks/useMovies';
 import GradientBackground from '../components/GradientBackground';
 import { getImageColors } from '../helpers/getImageColors';
+import { useContext, useEffect } from 'react';
+import { GradientContext } from '../context/GradientContext';
 
 const { width: windowWidth } = Dimensions.get('window');
 
@@ -17,14 +19,20 @@ const HomeScreen = () => {
 
     const { nowPlaying, popular, topRated, upcoming, isLoading } = useMovies();
     const { top } = useSafeAreaInsets();
+    const { setMainColors }= useContext(GradientContext);
 
     const getPosterColor = async (index: number) => {
         const movie = nowPlaying[index];
         const uri = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-        const [primary, secondary] = await getImageColors(uri);
-        console.log(primary, secondary);
-        
+        const [primary = "green", secondary = "orange"] = await getImageColors(uri);
+        setMainColors({primary, secondary})
     }
+
+    useEffect(() => {
+        if( nowPlaying.length > 0) {
+            getPosterColor(0)
+        }
+    }, [nowPlaying])
 
     if (isLoading) {
         return (
